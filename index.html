@@ -405,8 +405,8 @@ function cekKelulusan(){
 
     if(input.includes("rajin")){
       const namaAsli = input.replace(/rajin/gi,"").trim();
-      const namaZLulus = lulus.find(n => normalizeText(n) === namaAsli);
-      const namaZTidak = tidakLulus.find(n => normalizeText(n) === namaAsli);
+      const namaZLulus = lulus.find(n => namaAsli.includes(normalizeText(n)));
+      const namaZTidak = tidakLulus.find(n => namaAsli.includes(normalizeText(n)));
       if(namaZLulus || namaZTidak){
         tampilLulus(
           (namaZLulus || namaZTidak).toUpperCase(),
