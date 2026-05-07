@@ -405,8 +405,11 @@ function cekKelulusan(){
 
     if(input.includes("rajin")){
       const namaAsli = input.replace(/rajin/gi,"").trim();
+      const namaZLulus = lulus.find(n => normalizeText(n) === namaAsli);
+      const namaZTidak = tidakLulus.find(n => normalizeText(n) === namaAsli);
+      const namaTampil = (namaZLulus || namaZTidak || namaAsli).toUpperCase();
       tampilLulus(
-        namaAsli.toUpperCase(),
+        namaTampil,
         "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
       );
       return;
