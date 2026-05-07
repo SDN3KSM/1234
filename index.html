@@ -42,6 +42,7 @@ body{
     inset:0;
     overflow:hidden;
     z-index:0;
+    pointer-events:none;
 }
 
 .star{
@@ -71,6 +72,7 @@ body{
     filter:blur(120px);
     opacity:0.2;
     z-index:0;
+    pointer-events:none;
 }
 
 .glow1{
@@ -107,19 +109,6 @@ body{
     inset 0 0 25px rgba(255,255,255,0.03);
     text-align:center;
     animation:fadeUp 1s ease;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 18px;
-    border-radius:999px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.12);
-    font-size:13px;
-    margin-bottom:22px;
-    letter-spacing:1px;
 }
 
 .logo{
@@ -159,6 +148,7 @@ h1{
     font-size:13px;
     opacity:0.7;
     margin-bottom:32px;
+    line-height:1.8;
 }
 
 /* input */
@@ -427,10 +417,6 @@ input:focus{
 
     <div class="card">
 
-        <div class="badge">
-            
-        </div>
-
         <img
         src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
         class="logo">
@@ -449,7 +435,6 @@ input:focus{
 
         <div class="date">
             “Setiap akhir adalah awal dari perjalanan baru; apa pun hasil hari ini, tetaplah melangkah dengan hati yang kuat, mimpi yang besar, dan harapan yang tidak pernah padam.”
-
         </div>
 
         <div class="input-box">
@@ -597,8 +582,6 @@ const tidakLulus = [
 
 // ================= TYPO TOLERANCE =================
 
-// hitung beda huruf
-
 function levenshtein(a, b){
 
     const matrix = [];
@@ -719,11 +702,17 @@ function cekKelulusan(){
             statusKelulusan.className =
             "status tidak";
 
-            keterangan.innerHTML =
-            "Hari ini mungkin hasil yang didapat belum sesuai harapan, namun jangan jadikan hal itu sebagai alasan untuk menyerah. Jadikan ini sebagai pelajaran berharga untuk bangkit dan menjadi lebih baik lagi. Berjanjilah pada diri sendiri untuk belajar lebih rajin, lebih disiplin, dan lebih sungguh-sungguh dalam mengejar cita-cita. Kesuksesan tidak ditentukan oleh seberapa cepat seseorang berhasil, tetapi oleh seberapa kuat ia mau terus berusaha dan tidak menyerah.
+            keterangan.innerHTML = `
+            Hari ini mungkin hasil yang didapat belum sesuai harapan, namun jangan jadikan hal itu sebagai alasan untuk menyerah. Jadikan ini sebagai pelajaran berharga untuk bangkit dan menjadi lebih baik lagi.
 
-Tetaplah percaya bahwa setiap usaha yang dilakukan dengan tekun akan membawa hasil pada waktunya. Hormati orang tua dan guru yang selalu mendukung serta mendoakan yang terbaik. Mulailah melangkah dengan semangat baru, hati yang lebih kuat, dan keyakinan bahwa masa depan masih penuh kesempatan untuk meraih keberhasilan.
-.";
+            <br><br>
+
+            Berjanjilah pada diri sendiri untuk belajar lebih rajin, lebih disiplin, dan lebih sungguh-sungguh dalam mengejar cita-cita. Kesuksesan tidak ditentukan oleh seberapa cepat seseorang berhasil, tetapi oleh seberapa kuat ia mau terus berusaha dan tidak menyerah.
+
+            <br><br>
+
+            Tetaplah percaya bahwa setiap usaha yang dilakukan dengan tekun akan membawa hasil pada waktunya. Hormati orang tua dan guru yang selalu mendukung serta mendoakan yang terbaik.
+            `;
 
             return;
         }
