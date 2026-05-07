@@ -7,7 +7,9 @@
 <title>Pengumuman Kelulusan SDN 3 Kesiman</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,104 +17,172 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 body{
+    font-family:'Poppins',sans-serif;
     min-height:100vh;
+    overflow:hidden;
+    position:relative;
+    background:
+    radial-gradient(circle at top left,#0ea5e9 0%, transparent 25%),
+    radial-gradient(circle at bottom right,#8b5cf6 0%, transparent 25%),
+    linear-gradient(135deg,#020617,#0f172a,#111827);
     display:flex;
     justify-content:center;
     align-items:center;
-    background:
-    radial-gradient(circle at top left,#8EC5FC,#E0C3FC),
-    linear-gradient(135deg,#74ebd5,#ACB6E5);
-    overflow:hidden;
-    position:relative;
     padding:20px;
+    color:white;
 }
 
-/* background glow */
+/* animated background */
 
-body::before,
-body::after{
-    content:'';
+.stars{
     position:absolute;
-    width:450px;
-    height:450px;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:0.4;
+    inset:0;
+    overflow:hidden;
     z-index:0;
 }
 
-body::before{
-    background:#ffffff;
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.5;
+    animation:blink 3s infinite ease-in-out;
+}
+
+@keyframes blink{
+    0%,100%{
+        opacity:0.2;
+    }
+    50%{
+        opacity:1;
+    }
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.25;
+    z-index:0;
+}
+
+.glow1{
+    background:#06b6d4;
     top:-150px;
     left:-150px;
 }
 
-body::after{
-    background:#89f7fe;
+.glow2{
+    background:#8b5cf6;
     bottom:-150px;
     right:-150px;
 }
 
 .container{
     width:100%;
-    max-width:520px;
-    padding:45px 35px;
-    border-radius:32px;
-    background:rgba(255,255,255,0.18);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,0.25);
-    box-shadow:
-    0 8px 32px rgba(0,0,0,0.15);
-    text-align:center;
-    color:white;
+    max-width:580px;
     position:relative;
-    z-index:2;
-    animation:fadeIn 1s ease;
+    z-index:10;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    border-radius:35px;
+    padding:45px 35px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.35),
+    inset 0 0 30px rgba(255,255,255,0.03);
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:-2px;
+    background:
+    linear-gradient(
+    135deg,
+    rgba(255,255,255,0.25),
+    transparent,
+    rgba(255,255,255,0.08)
+    );
+    border-radius:35px;
+    z-index:-1;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    font-size:13px;
+    margin-bottom:20px;
+    letter-spacing:1px;
 }
 
 .logo{
-    width:95px;
-    margin-bottom:15px;
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:50%;
+    padding:8px;
+    background:rgba(255,255,255,0.08);
+    border:3px solid rgba(255,255,255,0.15);
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .school{
     font-size:14px;
-    letter-spacing:2px;
-    opacity:0.9;
+    letter-spacing:4px;
+    text-transform:uppercase;
     margin-bottom:10px;
+    opacity:0.9;
 }
 
 h1{
-    font-size:34px;
-    font-weight:700;
-    margin-bottom:10px;
+    font-size:42px;
+    font-weight:800;
     line-height:1.2;
+    margin-bottom:14px;
 }
 
 .subtitle{
     font-size:15px;
-    opacity:0.95;
-    margin-bottom:8px;
+    opacity:0.92;
+    line-height:1.8;
 }
 
 .date{
+    margin-top:8px;
     font-size:13px;
-    opacity:0.8;
-    margin-bottom:30px;
+    opacity:0.7;
+    margin-bottom:32px;
 }
 
-.input-group{
+.input-box{
     position:relative;
     margin-bottom:18px;
 }
 
-.input-group span{
+.input-box span{
     position:absolute;
-    left:15px;
+    left:18px;
     top:50%;
     transform:translateY(-50%);
     font-size:18px;
@@ -120,86 +190,183 @@ h1{
 
 input{
     width:100%;
-    padding:16px 16px 16px 48px;
     border:none;
-    border-radius:16px;
-    font-size:16px;
     outline:none;
-    background:rgba(255,255,255,0.95);
-    color:#333;
+    border-radius:18px;
+    padding:18px 18px 18px 52px;
+    font-size:16px;
+    background:rgba(255,255,255,0.96);
+    color:#111827;
     transition:0.3s;
+    font-weight:500;
 }
 
 input:focus{
     transform:scale(1.02);
-    box-shadow:0 0 15px rgba(255,255,255,0.4);
+    box-shadow:0 0 25px rgba(255,255,255,0.25);
 }
 
-button{
+.btn{
     width:100%;
-    padding:16px;
     border:none;
-    border-radius:16px;
-    background:linear-gradient(135deg,#ffffff,#f2f2f2);
-    color:#4A6CF7;
-    font-size:16px;
-    font-weight:600;
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    padding:17px;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:700;
+    transition:0.35s;
+    color:white;
+    background:
+    linear-gradient(
+    135deg,
+    #06b6d4,
+    #6366f1
+    );
+    box-shadow:
+    0 12px 25px rgba(99,102,241,0.35);
 }
 
-button:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+    0 18px 35px rgba(99,102,241,0.45);
+}
+
+.loading{
+    margin-top:20px;
+    display:none;
+    justify-content:center;
+    gap:10px;
+}
+
+.loading span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:white;
+    animation:bounce 0.6s infinite alternate;
+}
+
+.loading span:nth-child(2){
+    animation-delay:0.2s;
+}
+
+.loading span:nth-child(3){
+    animation-delay:0.4s;
+}
+
+@keyframes bounce{
+    from{
+        transform:translateY(0);
+        opacity:0.5;
+    }
+    to{
+        transform:translateY(-10px);
+        opacity:1;
+    }
 }
 
 .result{
     margin-top:28px;
-    padding:25px;
-    border-radius:24px;
-    background:rgba(255,255,255,0.18);
-    border:1px solid rgba(255,255,255,0.2);
+    border-radius:28px;
+    padding:28px;
     display:none;
-    animation:zoomIn 0.5s ease;
+    animation:zoomIn 0.6s ease;
+}
+
+.result.success{
+    background:
+    linear-gradient(
+    135deg,
+    rgba(16,185,129,0.18),
+    rgba(255,255,255,0.08)
+    );
+    border:1px solid rgba(16,185,129,0.35);
+}
+
+.result.failed{
+    background:
+    linear-gradient(
+    135deg,
+    rgba(239,68,68,0.15),
+    rgba(255,255,255,0.08)
+    );
+    border:1px solid rgba(239,68,68,0.3);
 }
 
 .result h2{
-    font-size:24px;
-    margin-bottom:10px;
+    font-size:28px;
+    margin-bottom:15px;
+    line-height:1.5;
+    word-break:break-word;
 }
 
 .status{
-    font-size:38px;
-    font-weight:700;
-    margin:15px 0;
+    font-size:52px;
+    font-weight:800;
+    margin-bottom:18px;
 }
 
 .lulus{
-    color:#00ff99;
-    text-shadow:0 0 15px rgba(0,255,153,0.5);
+    color:#00ffae;
+    text-shadow:
+    0 0 10px rgba(0,255,174,0.6),
+    0 0 30px rgba(0,255,174,0.3);
 }
 
 .tidak{
-    color:#ff6b6b;
+    color:#ff6b81;
+    text-shadow:
+    0 0 10px rgba(255,107,129,0.4);
 }
 
-.ket{
+.keterangan{
     font-size:15px;
-    line-height:1.6;
+    line-height:2;
     opacity:0.95;
+}
+
+.quote{
+    margin-top:24px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.06);
+    border-left:4px solid rgba(255,255,255,0.2);
+    font-size:14px;
+    line-height:1.8;
+    opacity:0.9;
 }
 
 .footer{
     margin-top:28px;
     font-size:12px;
-    opacity:0.85;
+    opacity:0.7;
+    line-height:1.8;
 }
 
-@keyframes fadeIn{
+/* confetti */
+
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    top:-20px;
+    z-index:9999;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+    }
+}
+
+@keyframes fadeUp{
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(40px);
     }
     to{
         opacity:1;
@@ -209,38 +376,36 @@ button:hover{
 
 @keyframes zoomIn{
     from{
-        transform:scale(0.7);
         opacity:0;
+        transform:scale(0.7);
     }
     to{
-        transform:scale(1);
         opacity:1;
-    }
-}
-
-.confetti{
-    position:absolute;
-    width:10px;
-    height:10px;
-    top:-10px;
-    animation:fall linear forwards;
-    z-index:999;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
+        transform:scale(1);
     }
 }
 
 @media(max-width:600px){
 
-    .container{
-        padding:35px 25px;
+    body{
+        overflow:auto;
+        padding:16px;
+    }
+
+    .card{
+        padding:35px 24px;
     }
 
     h1{
-        font-size:28px;
+        font-size:32px;
+    }
+
+    .result h2{
+        font-size:22px;
+    }
+
+    .status{
+        font-size:40px;
     }
 
 }
@@ -250,51 +415,85 @@ button:hover{
 
 <body>
 
+<div class="stars" id="stars"></div>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
 <div class="container">
 
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="logo">
+    <div class="card">
 
-    <div class="school">
-        SDN 3 KESIMAN
-    </div>
+        <div class="badge">
+            ✨ Pengumuman Resmi Kelulusan
+        </div>
 
-    <h1>Pengumuman Kelulusan</h1>
+        <img
+        src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+        class="logo">
 
-    <p class="subtitle">
-        Tahun Pelajaran 2025/2026
-    </p>
+        <div class="school">
+            SDN 3 KESIMAN
+        </div>
 
-    <div class="date">
-        Senin, 2 Juni 2026
-    </div>
+        <h1>
+            Pengumuman Kelulusan
+        </h1>
 
-    <div class="input-group">
-        <span>🎓</span>
-        <input type="text" id="nama" placeholder="Masukkan Nama Lengkap">
-    </div>
+        <div class="subtitle">
+            Tahun Pelajaran 2025 / 2026
+        </div>
 
-    <button onclick="cekKelulusan()">
-        Cek Kelulusan
-    </button>
+        <div class="date">
+            Senin, 2 Juni 2026
+        </div>
 
-    <div class="result" id="resultBox">
+        <div class="input-box">
+            <span>🎓</span>
 
-        <h2 id="namaSiswa"></h2>
+            <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan Nama Lengkap">
+        </div>
 
-        <div class="status" id="statusKelulusan"></div>
-
-        <p class="ket" id="keterangan"></p>
-
-        <br>
-
-        <button onclick="downloadSurat()">
-            Download Surat Kelulusan
+        <button
+        class="btn"
+        onclick="cekKelulusan()">
+            Cek Kelulusan
         </button>
 
-    </div>
+        <div class="loading" id="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    <div class="footer">
-        © 2026 SDN 3 Kesiman • All Rights Reserved
+        <div class="result" id="resultBox">
+
+            <h2 id="namaSiswa"></h2>
+
+            <div
+            class="status"
+            id="statusKelulusan"></div>
+
+            <div
+            class="keterangan"
+            id="keterangan"></div>
+
+            <div class="quote">
+                “Kesuksesan bukan akhir dari perjalanan,
+                tetapi awal untuk terus belajar,
+                berkembang, dan menjadi pribadi yang lebih baik.”
+            </div>
+
+        </div>
+
+        <div class="footer">
+            © 2026 SDN 3 Kesiman <br>
+            All Rights Reserved
+        </div>
+
     </div>
 
 </div>
@@ -385,8 +584,8 @@ const tidakLulus = [
 
 function cekKelulusan(){
 
-    let input = document
-    .getElementById("nama")
+    const input =
+    document.getElementById("nama")
     .value
     .toLowerCase()
     .trim();
@@ -403,69 +602,89 @@ function cekKelulusan(){
     const keterangan =
     document.getElementById("keterangan");
 
-    resultBox.style.display = "block";
+    const loading =
+    document.getElementById("loading");
 
-    if(tidakLulus.includes(input)){
+    if(input === ""){
 
-        namaSiswa.innerHTML =
-        input.toUpperCase();
-
-        statusKelulusan.innerHTML =
-        "BELUM LULUS";
-
-        statusKelulusan.className =
-        "status tidak";
-
-        keterangan.innerHTML =
-        "Tetap semangat 🌱<br><br>Perjalanan setiap orang berbeda. Hari ini mungkin belum sesuai harapan, tetapi bukan akhir dari segalanya. Tetaplah melangkah dan terus belajar.";
-
+        alert("Masukkan nama terlebih dahulu");
         return;
+
     }
 
-    if(lulus.includes(input)){
+    resultBox.style.display = "none";
+    loading.style.display = "flex";
 
-        namaSiswa.innerHTML =
-        input.toUpperCase();
+    setTimeout(()=>{
 
-        statusKelulusan.innerHTML =
-        "LULUS";
+        loading.style.display = "none";
+        resultBox.style.display = "block";
 
-        statusKelulusan.className =
-        "status lulus";
+        if(tidakLulus.includes(input)){
 
-        keterangan.innerHTML =
-        "Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa. Setiap tugas yang dikerjakan, setiap pelajaran yang dipelajari, dan setiap tantangan yang dihadapi telah membentuk kalian menjadi pribadi yang lebih kuat dan lebih baik. Kelulusan ini adalah langkah awal menuju mimpi-mimpi yang lebih besar. Teruslah percaya pada diri sendiri, karena masa depan akan selalu terbuka bagi mereka yang mau berusaha dan tidak mudah menyerah.
+            resultBox.className =
+            "result failed";
 
-Untuk seluruh siswa, tetaplah rendah hati saat berhasil dan tetap semangat saat menghadapi kesulitan. Tidak semua perjalanan akan selalu mudah, tetapi setiap langkah kecil yang dilakukan dengan sungguh-sungguh akan membawa hasil yang indah pada waktunya. Jadilah anak yang membanggakan orang tua, guru, dan diri sendiri dengan sikap baik, kerja keras, dan hati yang tulus. Selamat atas kelulusan kalian, semoga sukses selalu menyertai setiap langkah ke depan.
-.";
+            namaSiswa.innerHTML =
+            input.toUpperCase();
 
-        confettiEffect();
+            statusKelulusan.innerHTML =
+            "BELUM LULUS";
 
-    }else{
+            statusKelulusan.className =
+            "status tidak";
 
-        namaSiswa.innerHTML =
-        "DATA TIDAK DITEMUKAN";
+            keterangan.innerHTML =
+            "Tetap semangat 🌱<br><br>Perjalanan setiap orang berbeda. Hari ini mungkin belum sesuai harapan, tetapi bukan akhir dari segalanya. Tetaplah melangkah dan terus belajar.";
 
-        statusKelulusan.innerHTML =
-        "❌";
+            return;
+        }
 
-        statusKelulusan.className =
-        "status tidak";
+        if(lulus.includes(input)){
 
-        keterangan.innerHTML =
-        "Nama yang dimasukkan tidak ditemukan. Silakan periksa kembali.";
-    }
-}
+            resultBox.className =
+            "result success";
 
-function downloadSurat(){
+            namaSiswa.innerHTML =
+            input.toUpperCase();
 
-    alert("Fitur download surat dapat ditambahkan nanti.");
+            statusKelulusan.innerHTML =
+            "LULUS";
+
+            statusKelulusan.className =
+            "status lulus";
+
+            keterangan.innerHTML =
+            "Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa.<br><br>Kelulusan ini adalah awal untuk melangkah menuju mimpi-mimpi yang lebih besar. Teruslah belajar, tetap rendah hati, dan jadilah pribadi yang membanggakan orang tua, guru, dan diri sendiri.<br><br>Selamat atas kelulusan kalian 🎉";
+
+            confettiEffect();
+
+        }else{
+
+            resultBox.className =
+            "result failed";
+
+            namaSiswa.innerHTML =
+            "DATA TIDAK DITEMUKAN";
+
+            statusKelulusan.innerHTML =
+            "❌";
+
+            statusKelulusan.className =
+            "status tidak";
+
+            keterangan.innerHTML =
+            "Nama yang dimasukkan tidak ditemukan.<br>Silakan periksa kembali penulisan nama.";
+
+        }
+
+    },1500);
 
 }
 
 function confettiEffect(){
 
-    for(let i=0;i<80;i++){
+    for(let i=0;i<120;i++){
 
         const confetti =
         document.createElement("div");
@@ -475,23 +694,64 @@ function confettiEffect(){
         confetti.style.left =
         Math.random()*100 + "vw";
 
-        confetti.style.animationDuration =
-        (Math.random()*3+2)+"s";
-
         confetti.style.background =
         `hsl(${Math.random()*360},100%,50%)`;
 
         confetti.style.width =
-        confetti.style.height =
         Math.random()*10+5+"px";
+
+        confetti.style.height =
+        confetti.style.width;
+
+        confetti.style.animationDuration =
+        (Math.random()*3+2)+"s";
 
         document.body.appendChild(confetti);
 
         setTimeout(()=>{
             confetti.remove();
         },5000);
+
     }
+
 }
+
+// stars generator
+
+const stars =
+document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.top =
+    Math.random()*100 + "%";
+
+    star.style.left =
+    Math.random()*100 + "%";
+
+    star.style.animationDuration =
+    (Math.random()*3+2)+"s";
+
+    stars.appendChild(star);
+
+}
+
+// enter keyboard
+
+document
+.getElementById("nama")
+.addEventListener("keypress",function(e){
+
+    if(e.key === "Enter"){
+        cekKelulusan();
+    }
+
+});
 
 </script>
 
