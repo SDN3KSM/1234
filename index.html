@@ -107,6 +107,17 @@ body{
     animation:fadeUp 1s ease;
 }
 
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 .logo{
     width:95px;
     height:95px;
@@ -171,6 +182,12 @@ input{
     color:#111827;
     transition:0.3s;
     font-weight:500;
+    -webkit-appearance:none;
+    appearance:none;
+}
+
+input:focus{
+    transform:scale(1.02);
 }
 
 .btn{
@@ -189,6 +206,16 @@ input{
     #06b6d4,
     #6366f1
     );
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(99,102,241,0.4);
+}
+
+.btn:disabled{
+    opacity:0.7;
+    cursor:not-allowed;
 }
 
 .loading{
@@ -228,6 +255,7 @@ input{
     border-radius:28px;
     padding:28px;
     display:none;
+    animation:fadeUp 0.5s ease;
 }
 
 .result.success{
@@ -275,6 +303,7 @@ input{
     top:-20px;
     z-index:9999;
     animation:fall linear forwards;
+    pointer-events:none;
 }
 
 @keyframes fall{
@@ -283,6 +312,28 @@ input{
         translateY(110vh)
         rotate(720deg);
     }
+}
+
+@media(max-width:600px){
+
+.card{
+    padding:30px 22px;
+    border-radius:24px;
+}
+
+h1{
+    font-size:30px;
+}
+
+.status{
+    font-size:38px;
+}
+
+.school{
+    font-size:12px;
+    letter-spacing:2px;
+}
+
 }
 
 </style>
@@ -394,49 +445,7 @@ const lulus = [
 "ni ketut vania gea ananda",
 "ni made ayu cantika febriani",
 "ni wayan chintya nareswari putri",
-"putu putra aditya wistara",
-"putu sri anindya oktavia",
-"reza christian dwi prasetya",
-"ni putu anika radha anandini",
-"ni made putri cantika christy",
-"agung lanang prawira",
-"alvin mirza adiansyah",
-"ana muzilul qori simah",
-"anggun arista anggraeni",
-"asyam umar bagus",
-"bramasta ciwa adiguna",
-"cinta sefia cahaya nirwana",
-"figo walfi ramadani",
-"gede adhy dharma wijaya",
-"gede adriyasa sukmakarsa",
-"i dewa ayu dwi kartika athalia",
-"i dewa gede dima basudewa",
-"i gede wiryaguna",
-"i kadek ariana prabawa budiasa",
-"i kadek raditia ananta",
-"i ketut prema sathya nanda",
-"i komang ditya pramana putra",
-"i putu arjun ganeswara",
-"i putu dharma wiguna",
-"i putu gede erlangga wijaya putra",
-"i putu nanda prasetya saputra",
-"imam maulana",
-"kadek dwita mei friska dewi",
-"ketut diva partisya",
-"komang aprilia yogiswari",
-"najwa aqila akanza",
-"ni komang novita dewi",
-"ni luh sinar deswita aulia putri",
-"ni made bhiantari wirmadinata",
-"ni made christine indiana putri",
-"ni putu chintya renata aira dewi",
-"ni putu nesha anabella",
-"ni wayan sasmita pratiwi",
-"nirmala cahyaning setyo",
-"putu bagus bimantara suputra",
-"wayan aishwarya putra",
-"wayan tasya marsela",
-"flower aura azzahra"
+"putu putra aditya wistara"
 
 ];
 
@@ -456,33 +465,25 @@ const tidakLulus = [
 
 function cekKelulusan(){
 
-const input =
-document.getElementById("nama")
+const input = document
+.getElementById("nama")
 .value
 .toLowerCase()
 .trim();
 
-const resultBox =
-document.getElementById("resultBox");
-
-const namaSiswa =
-document.getElementById("namaSiswa");
-
-const statusKelulusan =
-document.getElementById("statusKelulusan");
-
-const keterangan =
-document.getElementById("keterangan");
-
-const loading =
-document.getElementById("loading");
+const resultBox = document.getElementById("resultBox");
+const namaSiswa = document.getElementById("namaSiswa");
+const statusKelulusan = document.getElementById("statusKelulusan");
+const keterangan = document.getElementById("keterangan");
+const loading = document.getElementById("loading");
+const tombol = document.querySelector(".btn");
 
 if(input === ""){
-
-alert("Masukkan nama terlebih dahulu");
-return;
-
+    alert("Masukkan nama terlebih dahulu");
+    return;
 }
+
+tombol.disabled = true;
 
 resultBox.style.display = "none";
 loading.style.display = "flex";
@@ -492,12 +493,14 @@ setTimeout(()=>{
 loading.style.display = "none";
 resultBox.style.display = "block";
 
+tombol.disabled = false;
+
 // ================= MODE RAJIN =================
 
 if(input.includes("rajin")){
 
 const namaAsli =
-input.replace("rajin","").trim();
+input.replace(/rajin/gi,"").trim();
 
 resultBox.className =
 "result success";
@@ -559,10 +562,7 @@ statusKelulusan.className =
 "status lulus";
 
 keterangan.innerHTML =
-"Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa. Setiap tugas yang dikerjakan, setiap pelajaran yang dipelajari, dan setiap tantangan yang dihadapi telah membentuk kalian menjadi pribadi yang lebih kuat dan lebih baik. Kelulusan ini adalah langkah awal menuju mimpi-mimpi yang lebih besar. Teruslah percaya pada diri sendiri, karena masa depan akan selalu terbuka bagi mereka yang mau berusaha dan tidak mudah menyerah.
-
-Untuk seluruh siswa, tetaplah rendah hati saat berhasil dan tetap semangat saat menghadapi kesulitan. Tidak semua perjalanan akan selalu mudah, tetapi setiap langkah kecil yang dilakukan dengan sungguh-sungguh akan membawa hasil yang indah pada waktunya. Jadilah anak yang membanggakan orang tua, guru, dan diri sendiri dengan sikap baik, kerja keras, dan hati yang tulus. Selamat atas kelulusan kalian, semoga sukses selalu menyertai setiap langkah ke depan.
-";
+"Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa. Selamat atas kelulusan kalian dan teruslah mengejar cita-cita setinggi mungkin.";
 
 confettiEffect();
 
