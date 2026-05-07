@@ -182,8 +182,6 @@ input{
     color:#111827;
     transition:0.3s;
     font-weight:500;
-    -webkit-appearance:none;
-    appearance:none;
 }
 
 input:focus{
@@ -211,11 +209,6 @@ input:focus{
 .btn:hover{
     transform:translateY(-2px);
     box-shadow:0 10px 25px rgba(99,102,241,0.4);
-}
-
-.btn:disabled{
-    opacity:0.7;
-    cursor:not-allowed;
 }
 
 .loading{
@@ -445,7 +438,49 @@ const lulus = [
 "ni ketut vania gea ananda",
 "ni made ayu cantika febriani",
 "ni wayan chintya nareswari putri",
-"putu putra aditya wistara"
+"putu putra aditya wistara",
+"putu sri anindya oktavia",
+"reza christian dwi prasetya",
+"ni putu anika radha anandini",
+"ni made putri cantika christy",
+"agung lanang prawira",
+"alvin mirza adiansyah",
+"ana muzilul qori simah",
+"anggun arista anggraeni",
+"asyam umar bagus",
+"bramasta ciwa adiguna",
+"cinta sefia cahaya nirwana",
+"figo walfi ramadani",
+"gede adhy dharma wijaya",
+"gede adriyasa sukmakarsa",
+"i dewa ayu dwi kartika athalia",
+"i dewa gede dima basudewa",
+"i gede wiryaguna",
+"i kadek ariana prabawa budiasa",
+"i kadek raditia ananta",
+"i ketut prema sathya nanda",
+"i komang ditya pramana putra",
+"i putu arjun ganeswara",
+"i putu dharma wiguna",
+"i putu gede erlangga wijaya putra",
+"i putu nanda prasetya saputra",
+"imam maulana",
+"kadek dwita mei friska dewi",
+"ketut diva partisya",
+"komang aprilia yogiswari",
+"najwa aqila akanza",
+"ni komang novita dewi",
+"ni luh sinar deswita aulia putri",
+"ni made bhiantari wirmadinata",
+"ni made christine indiana putri",
+"ni putu chintya renata aira dewi",
+"ni putu nesha anabella",
+"ni wayan sasmita pratiwi",
+"nirmala cahyaning setyo",
+"putu bagus bimantara suputra",
+"wayan aishwarya putra",
+"wayan tasya marsela",
+"flower aura azzahra"
 
 ];
 
@@ -461,29 +496,48 @@ const tidakLulus = [
 
 ];
 
+// ================= NORMALIZE =================
+
+function normalizeText(text){
+
+return text
+.toLowerCase()
+.trim()
+.replace(/\s+/g," ");
+
+}
+
 // ================= CEK =================
 
 function cekKelulusan(){
 
-const input = document
-.getElementById("nama")
-.value
-.toLowerCase()
-.trim();
+const inputRaw =
+document.getElementById("nama").value;
 
-const resultBox = document.getElementById("resultBox");
-const namaSiswa = document.getElementById("namaSiswa");
-const statusKelulusan = document.getElementById("statusKelulusan");
-const keterangan = document.getElementById("keterangan");
-const loading = document.getElementById("loading");
-const tombol = document.querySelector(".btn");
+const input =
+normalizeText(inputRaw);
+
+const resultBox =
+document.getElementById("resultBox");
+
+const namaSiswa =
+document.getElementById("namaSiswa");
+
+const statusKelulusan =
+document.getElementById("statusKelulusan");
+
+const keterangan =
+document.getElementById("keterangan");
+
+const loading =
+document.getElementById("loading");
 
 if(input === ""){
-    alert("Masukkan nama terlebih dahulu");
-    return;
-}
 
-tombol.disabled = true;
+alert("Masukkan nama terlebih dahulu");
+return;
+
+}
 
 resultBox.style.display = "none";
 loading.style.display = "flex";
@@ -492,8 +546,6 @@ setTimeout(()=>{
 
 loading.style.display = "none";
 resultBox.style.display = "block";
-
-tombol.disabled = false;
 
 // ================= MODE RAJIN =================
 
@@ -520,17 +572,23 @@ keterangan.innerHTML =
 confettiEffect();
 
 return;
+
 }
 
 // ================= TIDAK LULUS =================
 
-if(tidakLulus.includes(input)){
+const cocokTidakLulus =
+tidakLulus.find(nama =>
+normalizeText(nama) === input
+);
+
+if(cocokTidakLulus){
 
 resultBox.className =
 "result failed";
 
 namaSiswa.innerHTML =
-input.toUpperCase();
+cocokTidakLulus.toUpperCase();
 
 statusKelulusan.innerHTML =
 "BELUM LULUS";
@@ -547,13 +605,18 @@ return;
 
 // ================= LULUS =================
 
-if(lulus.includes(input)){
+const cocokLulus =
+lulus.find(nama =>
+normalizeText(nama) === input
+);
+
+if(cocokLulus){
 
 resultBox.className =
 "result success";
 
 namaSiswa.innerHTML =
-input.toUpperCase();
+cocokLulus.toUpperCase();
 
 statusKelulusan.innerHTML =
 "LULUS";
