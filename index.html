@@ -3,330 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Pengumuman Kelulusan SDN 3 Kesiman</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:'Poppins',sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
-    background:
-    radial-gradient(circle at top left,#0ea5e9 0%, transparent 25%),
-    radial-gradient(circle at bottom right,#8b5cf6 0%, transparent 25%),
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at top left,#0ea5e9 0%,transparent 25%),
+    radial-gradient(circle at bottom right,#8b5cf6 0%,transparent 25%),
     linear-gradient(135deg,#020617,#0f172a,#111827);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  color:white;
 }
 
-.stars{
-    position:absolute;
-    inset:0;
-    overflow:hidden;
-    z-index:0;
-    pointer-events:none;
-}
+.stars{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;}
 
 .star{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
-    border-radius:50%;
-    opacity:0.5;
-    animation:blink 3s infinite ease-in-out;
+  position:absolute;width:3px;height:3px;
+  background:white;border-radius:50%;opacity:0.5;
+  animation:blink 3s infinite ease-in-out;
 }
 
-@keyframes blink{
-    0%,100%{
-        opacity:0.2;
-    }
-    50%{
-        opacity:1;
-    }
-}
+@keyframes blink{0%,100%{opacity:0.2;}50%{opacity:1;}}
 
 .glow{
-    position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:0.2;
-    z-index:0;
-    pointer-events:none;
+  position:absolute;width:500px;height:500px;
+  border-radius:50%;filter:blur(120px);
+  opacity:0.2;z-index:0;pointer-events:none;
 }
+.glow1{background:#06b6d4;top:-150px;left:-150px;}
+.glow2{background:#8b5cf6;bottom:-150px;right:-150px;}
 
-.glow1{
-    background:#06b6d4;
-    top:-150px;
-    left:-150px;
-}
-
-.glow2{
-    background:#8b5cf6;
-    bottom:-150px;
-    right:-150px;
-}
-
-.container{
-    width:100%;
-    max-width:620px;
-    position:relative;
-    z-index:10;
-}
+.container{width:100%;max-width:620px;position:relative;z-index:10;}
 
 .card{
-    position:relative;
-    overflow:hidden;
-    border-radius:32px;
-    padding:42px 34px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,0.12);
-    box-shadow:
-    0 10px 40px rgba(0,0,0,0.35),
-    inset 0 0 25px rgba(255,255,255,0.03);
-    text-align:center;
-    animation:fadeUp 1s ease;
+  position:relative;overflow:hidden;border-radius:32px;
+  padding:42px 34px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 10px 40px rgba(0,0,0,0.35),inset 0 0 25px rgba(255,255,255,0.03);
+  text-align:center;
+  animation:fadeUp 1s ease;
 }
 
 @keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
 .logo{
-    width:95px;
-    height:95px;
-    object-fit:cover;
-    border-radius:50%;
-    padding:8px;
-    background:rgba(255,255,255,0.08);
-    border:3px solid rgba(255,255,255,0.15);
-    margin-bottom:18px;
+  width:95px;height:95px;object-fit:cover;border-radius:50%;
+  padding:8px;background:rgba(255,255,255,0.08);
+  border:3px solid rgba(255,255,255,0.15);margin-bottom:18px;
 }
 
-.school{
-    font-size:14px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:12px;
-    opacity:0.9;
-}
+.school{font-size:14px;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;opacity:0.9;}
 
-h1{
-    font-size:42px;
-    line-height:1.2;
-    font-weight:800;
-    margin-bottom:12px;
-}
+h1{font-size:42px;line-height:1.2;font-weight:800;margin-bottom:12px;}
 
-.subtitle{
-    font-size:15px;
-    opacity:0.9;
-    line-height:1.8;
-}
+.subtitle{font-size:15px;opacity:0.9;line-height:1.8;}
 
 .date{
-    margin-top:8px;
-    font-size:13px;
-    opacity:0.7;
-    margin-bottom:32px;
-    line-height:1.8;
+  margin-top:8px;font-size:13px;opacity:0.7;
+  margin-bottom:32px;line-height:1.8;
 }
 
-.input-box{
-    position:relative;
-    margin-bottom:18px;
-}
+.input-box{position:relative;margin-bottom:18px;}
 
 .input-box span{
-    position:absolute;
-    left:18px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:18px;
+  position:absolute;left:18px;top:50%;
+  transform:translateY(-50%);font-size:18px;
 }
 
 input{
-    width:100%;
-    border:none;
-    outline:none;
-    border-radius:18px;
-    padding:18px 18px 18px 52px;
-    font-size:16px;
-    background:rgba(255,255,255,0.95);
-    color:#111827;
-    transition:0.3s;
-    font-weight:500;
+  width:100%;border:none;outline:none;border-radius:18px;
+  padding:18px 18px 18px 52px;font-size:16px;
+  background:rgba(255,255,255,0.95);color:#111827;
+  transition:0.3s;font-weight:500;
 }
-
-input:focus{
-    transform:scale(1.02);
-}
+input:focus{transform:scale(1.02);}
 
 .btn{
-    width:100%;
-    border:none;
-    cursor:pointer;
-    padding:17px;
-    border-radius:18px;
-    font-size:16px;
-    font-weight:700;
-    transition:0.35s;
-    color:white;
-    background:
-    linear-gradient(
-    135deg,
-    #06b6d4,
-    #6366f1
-    );
+  width:100%;border:none;cursor:pointer;
+  padding:17px;border-radius:18px;font-size:16px;font-weight:700;
+  transition:0.35s;color:white;
+  background:linear-gradient(135deg,#06b6d4,#6366f1);
 }
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(99,102,241,0.4);}
 
-.btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(99,102,241,0.4);
-}
-
-.loading{
-    margin-top:20px;
-    display:none;
-    justify-content:center;
-    gap:10px;
-}
-
+.loading{margin-top:20px;display:none;justify-content:center;gap:10px;}
 .loading span{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:white;
-    animation:bounce 0.6s infinite alternate;
+  width:12px;height:12px;border-radius:50%;background:white;
+  animation:bounce 0.6s infinite alternate;
 }
+.loading span:nth-child(2){animation-delay:0.2s;}
+.loading span:nth-child(3){animation-delay:0.4s;}
 
-.loading span:nth-child(2){
-    animation-delay:0.2s;
-}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-10px);}}
 
-.loading span:nth-child(3){
-    animation-delay:0.4s;
-}
-
-@keyframes bounce{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-10px);
-    }
-}
+/* ===== RESULT BOX ===== */
 
 .result{
-    margin-top:28px;
-    border-radius:28px;
-    padding:28px;
-    display:none;
-    animation:fadeUp 0.5s ease;
+  margin-top:28px;border-radius:28px;padding:32px 28px;
+  display:none;position:relative;overflow:hidden;
 }
 
 .result.success{
-    background:
-    linear-gradient(
-    135deg,
-    rgba(16,185,129,0.18),
-    rgba(255,255,255,0.08)
-    );
+  background:linear-gradient(135deg,rgba(0,255,174,0.12),rgba(6,182,212,0.08),rgba(255,255,255,0.04));
+  border:1px solid rgba(0,255,174,0.3);
+  box-shadow:0 0 60px rgba(0,255,174,0.12),inset 0 0 40px rgba(0,255,174,0.04);
 }
 
+.result.success::before{
+  content:'';position:absolute;inset:0;border-radius:28px;
+  background:radial-gradient(circle at 50% 20%,rgba(0,255,174,0.1) 0%,transparent 65%);
+  animation:glowPulse 2.5s ease-in-out infinite;pointer-events:none;
+}
+
+@keyframes glowPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+
 .result.failed{
-    background:
-    linear-gradient(
-    135deg,
-    rgba(239,68,68,0.15),
-    rgba(255,255,255,0.08)
-    );
+  background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(99,102,241,0.08),rgba(255,255,255,0.04));
+  border:1px solid rgba(139,92,246,0.28);
+  box-shadow:0 0 40px rgba(139,92,246,0.1);
+}
+
+.result.not-found{
+  background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(255,255,255,0.04));
+  border:1px solid rgba(239,68,68,0.22);
+}
+
+.result-icon{
+  display:block;font-size:60px;margin-bottom:10px;
+  animation:iconPop 0.55s cubic-bezier(0.175,0.885,0.32,1.275) 0.15s both;
+}
+
+@keyframes iconPop{
+  from{transform:scale(0) rotate(-30deg);opacity:0;}
+  to{transform:scale(1) rotate(0deg);opacity:1;}
+}
+
+.result h2{
+  font-size:17px;font-weight:700;margin-bottom:4px;
+  opacity:0.95;letter-spacing:1px;
 }
 
 .status{
-    font-size:48px;
-    font-weight:800;
-    margin:18px 0;
+  font-size:48px;font-weight:800;
+  margin:14px 0;min-height:60px;
 }
 
 .lulus{
-    color:#00ffae;
+  color:#00ffae;
+  text-shadow:0 0 30px rgba(0,255,174,0.7),0 0 60px rgba(0,255,174,0.25);
 }
 
 .tidak{
-    color:#ff6b81;
+  color:#a78bfa;
+  text-shadow:0 0 25px rgba(167,139,250,0.5);
 }
 
-.footer{
-    margin-top:28px;
-    font-size:12px;
-    opacity:0.7;
+.tidak-merah{
+  color:#fb7185;
+  text-shadow:0 0 20px rgba(251,113,133,0.4);
+  font-size:38px;
 }
 
-.confetti{
-    position:fixed;
-    width:10px;
-    height:10px;
-    top:-20px;
-    z-index:9999;
-    animation:fall linear forwards;
-    pointer-events:none;
+#keterangan{
+  font-size:14px;line-height:1.85;opacity:0.88;margin-top:8px;
 }
 
-@keyframes fall{
-    to{
-        transform:
-        translateY(110vh)
-        rotate(720deg);
-    }
+/* Rain drops for BELUM LULUS */
+.rain-drop{
+  position:absolute;
+  width:1.5px;height:18px;
+  background:linear-gradient(to bottom,transparent,rgba(167,139,250,0.55));
+  animation:rainFall linear infinite;
+  border-radius:0 0 2px 2px;
+  pointer-events:none;top:0;
 }
+
+@keyframes rainFall{
+  0%{transform:translateY(-20px);opacity:0;}
+  15%{opacity:0.7;}
+  85%{opacity:0.7;}
+  100%{transform:translateY(280px);opacity:0;}
+}
+
+/* Fireworks overlay */
+#fw-container{
+  position:fixed;inset:0;
+  pointer-events:none;z-index:9998;
+}
+
+.footer{margin-top:28px;font-size:12px;opacity:0.7;}
 
 @media(max-width:600px){
-
-.card{
-    padding:30px 22px;
-    border-radius:24px;
-}
-
-h1{
-    font-size:30px;
-}
-
-.status{
-    font-size:38px;
-}
-
-.school{
-    font-size:12px;
-    letter-spacing:2px;
-}
-
+  .card{padding:30px 22px;border-radius:24px;}
+  h1{font-size:30px;}
+  .status{font-size:38px;}
+  .school{font-size:12px;letter-spacing:2px;}
+  .result-icon{font-size:46px;}
 }
 
 </style>
@@ -334,74 +226,53 @@ h1{
 
 <body>
 
+<div id="fw-container"></div>
 <div class="stars" id="stars"></div>
-
 <div class="glow glow1"></div>
 <div class="glow glow2"></div>
 
 <div class="container">
-
 <div class="card">
 
-<img
-src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="logo">
 
-<div class="school">
-SD NEGERI 3 KESIMAN
-</div>
+<div class="school">SD NEGERI 3 KESIMAN</div>
 
-<h1>
-Pengumuman Kelulusan
-</h1>
+<h1>Pengumuman Kelulusan</h1>
 
-<div class="subtitle">
-Tahun Pelajaran 2025 / 2026
-</div>
+<div class="subtitle">Tahun Ajaran 2025 / 2026</div>
 
 <div class="date">
-“Apapun hasil hari ini, tetaplah bangga pada perjuangan yang telah dilewati.”
+"Apapun hasil hari ini, tetaplah bangga pada perjuangan yang telah dilewati."
 </div>
 
 <div class="input-box">
 <span>🎓</span>
-
-<input
-type="text"
-id="nama"
-placeholder="Masukkan Nama Lengkap">
+<input type="text" id="nama" placeholder="Masukkan Nama Lengkap">
 </div>
 
-<button
-class="btn"
-onclick="cekKelulusan()">
-Cek Kelulusan
-</button>
+<button class="btn" onclick="cekKelulusan()">Cek Kelulusan</button>
 
 <div class="loading" id="loading">
-<span></span>
-<span></span>
-<span></span>
+<span></span><span></span><span></span>
 </div>
 
 <div class="result" id="resultBox">
-
-<h2 id="namaSiswa"></h2>
-
-<div
-class="status"
-id="statusKelulusan"></div>
-
-<div id="keterangan"></div>
-
+  <span id="resultIcon" class="result-icon"></span>
+  <h2 id="namaSiswa"></h2>
+  <div class="status" id="statusKelulusan"></div>
+  <div id="keterangan"></div>
 </div>
 
-<div class="footer">
-© 2026 SDN 3 Kesiman
-</div>
+<div class="footer">© 2026 SDN 3 Kesiman</div>
 
 </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <script>
 
@@ -499,230 +370,302 @@ const tidakLulus = [
 // ================= NORMALIZE =================
 
 function normalizeText(text){
-
-return text
-.toLowerCase()
-.trim()
-.replace(/\s+/g," ");
-
+  return text.toLowerCase().trim().replace(/\s+/g," ");
 }
+
+// ================= STATE =================
+
+let typedInstance = null;
+let fwInstance = null;
+let rainCleanup = null;
 
 // ================= CEK =================
 
 function cekKelulusan(){
 
-const inputRaw =
-document.getElementById("nama").value;
+  const inputRaw = document.getElementById("nama").value;
+  const input = normalizeText(inputRaw);
+  const loading = document.getElementById("loading");
+  const resultBox = document.getElementById("resultBox");
 
-const input =
-normalizeText(inputRaw);
+  if(input === ""){
+    alert("Masukkan nama terlebih dahulu");
+    return;
+  }
 
-const resultBox =
-document.getElementById("resultBox");
+  resultBox.style.display = "none";
+  loading.style.display = "flex";
+  cleanupAnimations();
 
-const namaSiswa =
-document.getElementById("namaSiswa");
+  setTimeout(()=>{
 
-const statusKelulusan =
-document.getElementById("statusKelulusan");
+    loading.style.display = "none";
 
-const keterangan =
-document.getElementById("keterangan");
+    // ================= MODE RAJIN =================
 
-const loading =
-document.getElementById("loading");
+    if(input.includes("rajin")){
+      const namaAsli = input.replace(/rajin/gi,"").trim();
+      tampilLulus(
+        namaAsli.toUpperCase(),
+        "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
+      );
+      return;
+    }
 
-if(input === ""){
+    // ================= TIDAK LULUS =================
 
-alert("Masukkan nama terlebih dahulu");
-return;
+    const cocokTidakLulus = tidakLulus.find(n => normalizeText(n) === input);
+    if(cocokTidakLulus){
+      tampilBelumLulus(
+        cocokTidakLulus.toUpperCase(),
+        "Jangan menyerah dan tetap semangat belajar. Setiap usaha tidak pernah sia-sia. Teruslah berjuang dan raih yang terbaik!"
+      );
+      return;
+    }
 
-}
+    // ================= LULUS =================
 
-resultBox.style.display = "none";
-loading.style.display = "flex";
+    const cocokLulus = lulus.find(n => normalizeText(n) === input);
+    if(cocokLulus){
+      tampilLulus(
+        cocokLulus.toUpperCase(),
+        "Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa. Selamat atas kelulusan kalian dan teruslah mengejar cita-cita setinggi mungkin."
+      );
+      return;
+    }
 
-setTimeout(()=>{
+    tampilTidakDitemukan();
 
-loading.style.display = "none";
-resultBox.style.display = "block";
-
-// ================= MODE RAJIN =================
-
-if(input.includes("rajin")){
-
-const namaAsli =
-input.replace(/rajin/gi,"").trim();
-
-resultBox.className =
-"result success";
-
-namaSiswa.innerHTML =
-namaAsli.toUpperCase();
-
-statusKelulusan.innerHTML =
-"LULUS";
-
-statusKelulusan.className =
-"status lulus";
-
-keterangan.innerHTML =
-"Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉";
-
-confettiEffect();
-
-return;
+  }, 1200);
 
 }
 
-// ================= TIDAK LULUS =================
+// ================= TAMPIL LULUS =================
 
-const cocokTidakLulus =
-tidakLulus.find(nama =>
-normalizeText(nama) === input
-);
+function tampilLulus(nama, pesan){
 
-if(cocokTidakLulus){
+  const resultBox = document.getElementById("resultBox");
+  const namaSiswa = document.getElementById("namaSiswa");
+  const resultIcon = document.getElementById("resultIcon");
+  const keterangan = document.getElementById("keterangan");
+  const statusEl = document.getElementById("statusKelulusan");
 
-resultBox.className =
-"result failed";
+  resultIcon.textContent = "🎓";
+  namaSiswa.textContent = nama;
+  keterangan.innerHTML = pesan;
+  statusEl.innerHTML = "";
+  statusEl.className = "status lulus";
 
-namaSiswa.innerHTML =
-cocokTidakLulus.toUpperCase();
+  resultBox.className = "result success";
+  resultBox.style.display = "block";
 
-statusKelulusan.innerHTML =
-"BELUM LULUS";
+  gsap.fromTo(resultBox,
+    {opacity:0, scale:0.55, y:24},
+    {opacity:1, scale:1, y:0, duration:0.75, ease:"back.out(1.6)"}
+  );
+  gsap.fromTo(namaSiswa,
+    {opacity:0, y:16},
+    {opacity:1, y:0, duration:0.5, delay:0.35, ease:"power2.out"}
+  );
+  gsap.fromTo(keterangan,
+    {opacity:0, y:10},
+    {opacity:1, y:0, duration:0.5, delay:0.85, ease:"power2.out"}
+  );
 
-statusKelulusan.className =
-"status tidak";
+  if(typedInstance){typedInstance.destroy();}
+  typedInstance = new Typed("#statusKelulusan", {
+    strings:["LULUS ✓"],
+    typeSpeed:65,
+    startDelay:400,
+    showCursor:false,
+  });
 
-keterangan.innerHTML =
-"Jangan menyerah dan tetap semangat belajar.";
+  setTimeout(()=>{
+    confetti({
+      particleCount:200,
+      spread:110,
+      origin:{y:0.6},
+      colors:['#00ffae','#06b6d4','#6366f1','#fbbf24','#f472b6','#34d399']
+    });
+    setTimeout(()=>confetti({
+      particleCount:90, angle:60, spread:60,
+      origin:{x:0, y:0.65},
+      colors:['#00ffae','#06b6d4','#fbbf24']
+    }), 380);
+    setTimeout(()=>confetti({
+      particleCount:90, angle:120, spread:60,
+      origin:{x:1, y:0.65},
+      colors:['#6366f1','#f472b6','#34d399']
+    }), 720);
+  }, 500);
 
-return;
-
-}
-
-// ================= LULUS =================
-
-const cocokLulus =
-lulus.find(nama =>
-normalizeText(nama) === input
-);
-
-if(cocokLulus){
-
-resultBox.className =
-"result success";
-
-namaSiswa.innerHTML =
-cocokLulus.toUpperCase();
-
-statusKelulusan.innerHTML =
-"LULUS";
-
-statusKelulusan.className =
-"status lulus";
-
-keterangan.innerHTML =
-"Hari ini bukan hanya tentang kelulusan, tetapi tentang perjalanan panjang yang telah kalian lalui dengan usaha, doa, dan semangat yang luar biasa. Selamat atas kelulusan kalian dan teruslah mengejar cita-cita setinggi mungkin.";
-
-confettiEffect();
-
-}else{
-
-resultBox.className =
-"result failed";
-
-namaSiswa.innerHTML =
-"DATA TIDAK DITEMUKAN";
-
-statusKelulusan.innerHTML =
-"❌";
-
-statusKelulusan.className =
-"status tidak";
-
-keterangan.innerHTML =
-"Nama tidak ditemukan.";
+  startFireworks();
 
 }
 
-},1200);
+// ================= TAMPIL BELUM LULUS =================
+
+function tampilBelumLulus(nama, pesan){
+
+  const resultBox = document.getElementById("resultBox");
+  const namaSiswa = document.getElementById("namaSiswa");
+  const resultIcon = document.getElementById("resultIcon");
+  const keterangan = document.getElementById("keterangan");
+  const statusEl = document.getElementById("statusKelulusan");
+
+  resultIcon.textContent = "💪";
+  namaSiswa.textContent = nama;
+  keterangan.innerHTML = pesan;
+  statusEl.innerHTML = "";
+  statusEl.className = "status tidak";
+
+  resultBox.className = "result failed";
+  resultBox.style.display = "block";
+
+  gsap.fromTo(resultBox,
+    {opacity:0, scale:0.85},
+    {
+      opacity:1, scale:1, duration:0.5, ease:"power2.out",
+      onComplete:()=>{
+        gsap.to(resultBox, {
+          x:9, repeat:7, yoyo:true, duration:0.07, ease:"power2.inOut",
+          onComplete:()=>gsap.set(resultBox,{x:0})
+        });
+      }
+    }
+  );
+  gsap.fromTo(namaSiswa, {opacity:0,y:10}, {opacity:1,y:0,duration:0.5,delay:0.3});
+  gsap.fromTo(keterangan, {opacity:0}, {opacity:1,duration:0.5,delay:0.75});
+
+  if(typedInstance){typedInstance.destroy();}
+  typedInstance = new Typed("#statusKelulusan", {
+    strings:["BELUM LULUS"],
+    typeSpeed:70,
+    startDelay:400,
+    showCursor:false,
+  });
+
+  startRain(resultBox);
 
 }
 
-// ================= CONFETTI =================
+// ================= TAMPIL TIDAK DITEMUKAN =================
 
-function confettiEffect(){
+function tampilTidakDitemukan(){
 
-for(let i=0;i<120;i++){
+  const resultBox = document.getElementById("resultBox");
+  const namaSiswa = document.getElementById("namaSiswa");
+  const resultIcon = document.getElementById("resultIcon");
+  const keterangan = document.getElementById("keterangan");
+  const statusEl = document.getElementById("statusKelulusan");
 
-const confetti =
-document.createElement("div");
+  resultIcon.textContent = "🔍";
+  namaSiswa.textContent = "DATA TIDAK DITEMUKAN";
+  statusEl.innerHTML = "❌";
+  statusEl.className = "status tidak-merah";
+  keterangan.innerHTML = "Nama tidak ditemukan dalam daftar. Periksa kembali ejaan nama Anda.";
 
-confetti.classList.add("confetti");
+  resultBox.className = "result not-found";
+  resultBox.style.display = "block";
 
-confetti.style.left =
-Math.random()*100 + "vw";
-
-confetti.style.background =
-`hsl(${Math.random()*360},100%,50%)`;
-
-confetti.style.width =
-Math.random()*10+5+"px";
-
-confetti.style.height =
-confetti.style.width;
-
-confetti.style.animationDuration =
-(Math.random()*3+2)+"s";
-
-document.body.appendChild(confetti);
-
-setTimeout(()=>{
-confetti.remove();
-},5000);
+  gsap.fromTo(resultBox,
+    {opacity:0, y:18},
+    {opacity:1, y:0, duration:0.5, ease:"power2.out"}
+  );
+  gsap.fromTo(namaSiswa, {opacity:0}, {opacity:1,duration:0.4,delay:0.2});
+  gsap.fromTo(keterangan, {opacity:0}, {opacity:1,duration:0.4,delay:0.45});
 
 }
 
+// ================= FIREWORKS =================
+
+function startFireworks(){
+
+  const container = document.getElementById("fw-container");
+  if(fwInstance){fwInstance.stop(); fwInstance = null;}
+
+  try{
+    const FW = (window.Fireworks && window.Fireworks.Fireworks)
+             ? window.Fireworks.Fireworks
+             : window.Fireworks;
+    if(FW && typeof FW === 'function'){
+      fwInstance = new FW(container, {
+        rocketsPoint:{min:5,max:95},
+        speed:2.5,
+        acceleration:1.05,
+        friction:0.97,
+        gravity:1.5,
+        particles:90,
+        traceLength:3,
+        traceSpeed:10,
+        explosion:6,
+        intensity:30,
+        flickering:50,
+        hue:{min:0,max:360},
+        delay:{min:30,max:60},
+        brightness:{min:50,max:80},
+        decay:{min:0.015,max:0.03},
+        opacity:0.55,
+        autoresize:true,
+        lineWidth:{
+          explosion:{min:1,max:3},
+          trace:{min:1,max:2}
+        },
+      });
+      fwInstance.start();
+      setTimeout(()=>{if(fwInstance){fwInstance.stop(); fwInstance=null;}}, 4500);
+    }
+  }catch(e){}
+
+}
+
+// ================= RAIN =================
+
+function startRain(container){
+
+  if(rainCleanup){rainCleanup();}
+  const drops = [];
+
+  for(let i=0; i<38; i++){
+    const drop = document.createElement("div");
+    drop.className = "rain-drop";
+    drop.style.left = Math.random()*100+"%";
+    drop.style.animationDuration = (Math.random()*0.7+0.45)+"s";
+    drop.style.animationDelay = (Math.random()*2.2)+"s";
+    container.appendChild(drop);
+    drops.push(drop);
+  }
+
+  const timer = setTimeout(()=>{drops.forEach(d=>{if(d.parentNode)d.remove();});}, 6500);
+  rainCleanup = ()=>{clearTimeout(timer); drops.forEach(d=>{if(d.parentNode)d.remove();});};
+
+}
+
+// ================= CLEANUP =================
+
+function cleanupAnimations(){
+  if(typedInstance){typedInstance.destroy(); typedInstance=null;}
+  if(fwInstance){fwInstance.stop(); fwInstance=null;}
+  if(rainCleanup){rainCleanup(); rainCleanup=null;}
 }
 
 // ================= STARS =================
 
-const stars =
-document.getElementById("stars");
+const starsEl = document.getElementById("stars");
 
 for(let i=0;i<120;i++){
-
-const star =
-document.createElement("div");
-
-star.classList.add("star");
-
-star.style.top =
-Math.random()*100 + "%";
-
-star.style.left =
-Math.random()*100 + "%";
-
-star.style.animationDuration =
-(Math.random()*3+2)+"s";
-
-stars.appendChild(star);
-
+  const star = document.createElement("div");
+  star.classList.add("star");
+  star.style.top = Math.random()*100+"%";
+  star.style.left = Math.random()*100+"%";
+  star.style.animationDuration = (Math.random()*3+2)+"s";
+  starsEl.appendChild(star);
 }
 
 // ================= ENTER =================
 
-document
-.getElementById("nama")
-.addEventListener("keypress",function(e){
-
-if(e.key === "Enter"){
-cekKelulusan();
-}
-
+document.getElementById("nama").addEventListener("keypress",function(e){
+  if(e.key==="Enter") cekKelulusan();
 });
 
 </script>
