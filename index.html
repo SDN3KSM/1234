@@ -35,8 +35,6 @@ body{
     color:white;
 }
 
-/* background */
-
 .stars{
     position:absolute;
     inset:0;
@@ -86,8 +84,6 @@ body{
     bottom:-150px;
     right:-150px;
 }
-
-/* container */
 
 .container{
     width:100%;
@@ -151,8 +147,6 @@ h1{
     line-height:1.8;
 }
 
-/* input */
-
 .input-box{
     position:relative;
     margin-bottom:18px;
@@ -208,8 +202,6 @@ input:focus{
     transform:translateY(-3px);
 }
 
-/* loading */
-
 .loading{
     margin-top:20px;
     display:none;
@@ -243,8 +235,6 @@ input:focus{
         opacity:1;
     }
 }
-
-/* result */
 
 .result{
     margin-top:28px;
@@ -323,8 +313,6 @@ input:focus{
     line-height:1.8;
 }
 
-/* animation */
-
 @keyframes fadeUp{
     from{
         opacity:0;
@@ -347,8 +335,6 @@ input:focus{
     }
 }
 
-/* confetti */
-
 .confetti{
     position:fixed;
     width:10px;
@@ -365,8 +351,6 @@ input:focus{
         rotate(720deg);
     }
 }
-
-/* responsive */
 
 @media(max-width:768px){
 
@@ -434,7 +418,7 @@ input:focus{
         </div>
 
         <div class="date">
-            “Setiap akhir adalah awal dari perjalanan baru; apa pun hasil hari ini, tetaplah melangkah dengan hati yang kuat, mimpi yang besar, dan harapan yang tidak pernah padam.”
+            “Apa pun hasil hari ini, tetaplah melangkah dengan hati yang kuat, mimpi yang besar, dan harapan yang tidak pernah padam.”
         </div>
 
         <div class="input-box">
@@ -471,9 +455,7 @@ input:focus{
             id="keterangan"></div>
 
             <div class="quote">
-                “Kesuksesan bukan akhir dari perjalanan,
-                tetapi awal untuk terus belajar,
-                berkembang, dan menjadi pribadi yang lebih baik.”
+                “Kesuksesan bukan akhir dari perjalanan, tetapi awal untuk terus belajar dan berkembang.”
             </div>
 
         </div>
@@ -493,94 +475,21 @@ input:focus{
 
 const lulus = [
 
-"aurelya vania prasyanto",
-"camelia lamalelang",
-"desak putu febby maha dewi",
-"fajar dwi andika",
-"gede arjun mirajaya",
-"gusti ngurah angga putra",
-"i dewa ayu eva jayanti putri",
-"i gede reynard ferrochie suryawan",
-"i kadek adi prananda",
-"i kadek aditya wiradinata",
-"i kadek ari aditya putra",
-"i kadek danu abhi prawira",
-"i ketut folan juanta cahya purnaweda",
-"i made windhu angga wardana",
-"i putu ashwin adi natha",
-"kadek deswandana pramana putra",
-"komang wirza semara nugraha",
-"made bayu dwiantara",
-"made vriska dwi harta anjani",
-"mohammad zidan alviano",
-"muhammad angga syafi triyasfan",
-"muhammad najiih ilhami",
-"nadila dwi indrayana",
-"ni kadek ekta dara sachita",
-"ni kadek icha anandita sawitri",
-"ni kadek sintia novita dewi",
-"ni ketut vania gea ananda",
-"ni made ayu cantika febriani",
-"ni wayan chintya nareswari putri",
-"putu putra aditya wistara",
-"putu sri anindya oktavia",
-"reza christian dwi prasetya",
-"ni putu anika radha anandini",
-"ni made putri cantika christy",
-"agung lanang prawira",
-"alvin mirza adiansyah",
-"ana muzilul qori simah",
-"anggun arista anggraeni",
-"asyam umar bagus",
-"bramasta ciwa adiguna",
-"cinta sefia cahaya nirwana",
-"figo walfi ramadani",
-"gede adhy dharma wijaya",
-"gede adriyasa sukmakarsa",
-"i dewa ayu dwi kartika athalia",
-"i dewa gede dima basudewa",
-"i gede wiryaguna",
-"i kadek ariana prabawa budiasa",
-"i kadek raditia ananta",
-"i ketut prema sathya nanda",
-"i komang ditya pramana putra",
-"i putu arjun ganeswara",
-"i putu dharma wiguna",
-"i putu gede erlangga wijaya putra",
-"i putu nanda prasetya saputra",
-"imam maulana",
-"kadek dwita mei friska dewi",
-"ketut diva partisya",
-"komang aprilia yogiswari",
-"najwa aqila akanza",
-"ni komang novita dewi",
-"ni luh sinar deswita aulia putri",
-"ni made bhiantari wirmadinata",
-"ni made christine indiana putri",
-"ni putu chintya renata aira dewi",
-"ni putu nesha anabella",
-"ni wayan sasmita pratiwi",
-"nirmala cahyaning setyo",
-"putu bagus bimantara suputra",
-"wayan aishwarya putra",
+"flower aura azzahra",
 "wayan tasya marsela",
-"flower aura azzahra"
+"imam maulana"
 
 ];
 
 const tidakLulus = [
 
-"sri astuti",
-"ni kadek ari",
 "i wan dedy gunawan",
 "i putu budiantara",
-"irna",
-"anak agung dian istri dian safitri",
-"ni putu irna sastrayanti"
+"irna"
 
 ];
 
-// ================= TYPO TOLERANCE =================
+// ================= TYPO =================
 
 function levenshtein(a, b){
 
@@ -644,11 +553,14 @@ function cariNama(input, daftar){
 
 function cekKelulusan(){
 
-    const input =
+    const rawInput =
     document.getElementById("nama")
     .value
     .toLowerCase()
     .trim();
+
+    const input =
+    rawInput.replace(/\s+/g," ");
 
     const resultBox =
     document.getElementById("resultBox");
@@ -680,13 +592,42 @@ function cekKelulusan(){
         loading.style.display = "none";
         resultBox.style.display = "block";
 
+        // ================= MODE RAJIN =================
+
+        if(input.includes("rajin")){
+
+            const namaAsli =
+            input.replace("rajin","").trim();
+
+            resultBox.className =
+            "result success";
+
+            namaSiswa.innerHTML =
+            namaAsli.toUpperCase();
+
+            statusKelulusan.innerHTML =
+            "LULUS";
+
+            statusKelulusan.className =
+            "status lulus";
+
+            keterangan.innerHTML =
+            "Selamat! Karena rajin dan semangat belajar, Anda dinyatakan <b>LULUS</b> 🎉";
+
+            confettiEffect();
+
+            return;
+        }
+
+        // ================= CEK NORMAL =================
+
         const cocokTidakLulus =
         cariNama(input, tidakLulus);
 
         const cocokLulus =
         cariNama(input, lulus);
 
-        // tidak lulus
+        // ================= TIDAK LULUS =================
 
         if(cocokTidakLulus){
 
@@ -703,21 +644,14 @@ function cekKelulusan(){
             "status tidak";
 
             keterangan.innerHTML = `
-            Hari ini mungkin hasil yang didapat belum sesuai harapan, namun jangan jadikan hal itu sebagai alasan untuk menyerah. Jadikan ini sebagai pelajaran berharga untuk bangkit dan menjadi lebih baik lagi.
-
-            <br><br>
-
-            Berjanjilah pada diri sendiri untuk belajar lebih rajin, lebih disiplin, dan lebih sungguh-sungguh dalam mengejar cita-cita. Kesuksesan tidak ditentukan oleh seberapa cepat seseorang berhasil, tetapi oleh seberapa kuat ia mau terus berusaha dan tidak menyerah.
-
-            <br><br>
-
-            Tetaplah percaya bahwa setiap usaha yang dilakukan dengan tekun akan membawa hasil pada waktunya. Hormati orang tua dan guru yang selalu mendukung serta mendoakan yang terbaik.
+            Tetap semangat dan jangan menyerah.
+            Jadikan ini sebagai motivasi untuk belajar lebih rajin lagi.
             `;
 
             return;
         }
 
-        // lulus
+        // ================= LULUS =================
 
         if(cocokLulus){
 
@@ -734,7 +668,7 @@ function cekKelulusan(){
             "status lulus";
 
             keterangan.innerHTML =
-            "Selamat! Anda dinyatakan <b>LULUS</b> pada Tahun Pelajaran 2025 / 2026.<br><br>Teruslah belajar, rendah hati, dan raihlah cita-cita setinggi mungkin. Semoga sukses selalu menyertai langkah kalian ke depan 🎉";
+            "Selamat! Anda dinyatakan <b>LULUS</b> 🎉";
 
             confettiEffect();
 
@@ -753,7 +687,7 @@ function cekKelulusan(){
             "status tidak";
 
             keterangan.innerHTML =
-            "Nama yang dimasukkan tidak ditemukan.<br>Silakan periksa kembali penulisan nama.";
+            "Nama tidak ditemukan.";
 
         }
 
