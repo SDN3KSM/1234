@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Pengumuman Kelulusan SDN 3 Kesiman</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top left,#8EC5FC,#E0C3FC),
+    linear-gradient(135deg,#74ebd5,#ACB6E5);
+    overflow:hidden;
+    position:relative;
+    padding:20px;
+}
+
+/* background glow */
+
+body::before,
+body::after{
+    content:'';
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:0.4;
+    z-index:0;
+}
+
+body::before{
+    background:#ffffff;
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+    background:#89f7fe;
+    bottom:-150px;
+    right:-150px;
+}
+
+.container{
+    width:100%;
+    max-width:520px;
+    padding:45px 35px;
+    border-radius:32px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.15);
+    text-align:center;
+    color:white;
+    position:relative;
+    z-index:2;
+    animation:fadeIn 1s ease;
+}
+
+.logo{
+    width:95px;
+    margin-bottom:15px;
+}
+
+.school{
+    font-size:14px;
+    letter-spacing:2px;
+    opacity:0.9;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:34px;
+    font-weight:700;
+    margin-bottom:10px;
+    line-height:1.2;
+}
+
+.subtitle{
+    font-size:15px;
+    opacity:0.95;
+    margin-bottom:8px;
+}
+
+.date{
+    font-size:13px;
+    opacity:0.8;
+    margin-bottom:30px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:18px;
+}
+
+.input-group span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
+}
+
+input{
+    width:100%;
+    padding:16px 16px 16px 48px;
+    border:none;
+    border-radius:16px;
+    font-size:16px;
+    outline:none;
+    background:rgba(255,255,255,0.95);
+    color:#333;
+    transition:0.3s;
+}
+
+input:focus{
+    transform:scale(1.02);
+    box-shadow:0 0 15px rgba(255,255,255,0.4);
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg,#ffffff,#f2f2f2);
+    color:#4A6CF7;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.result{
+    margin-top:28px;
+    padding:25px;
+    border-radius:24px;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.2);
+    display:none;
+    animation:zoomIn 0.5s ease;
+}
+
+.result h2{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.status{
+    font-size:38px;
+    font-weight:700;
+    margin:15px 0;
+}
+
+.lulus{
+    color:#00ff99;
+    text-shadow:0 0 15px rgba(0,255,153,0.5);
+}
+
+.tidak{
+    color:#ff6b6b;
+}
+
+.ket{
+    font-size:15px;
+    line-height:1.6;
+    opacity:0.95;
+}
+
+.footer{
+    margin-top:28px;
+    font-size:12px;
+    opacity:0.85;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    top:-10px;
+    animation:fall linear forwards;
+    z-index:999;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:35px 25px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="logo">
+
+    <div class="school">
+        SDN 3 KESIMAN
+    </div>
+
+    <h1>Pengumuman Kelulusan</h1>
+
+    <p class="subtitle">
+        Tahun Pelajaran 2025/2026
+    </p>
+
+    <div class="date">
+        Senin, 2 Juni 2026
+    </div>
+
+    <div class="input-group">
+        <span>🎓</span>
+        <input type="text" id="nama" placeholder="Masukkan Nama Lengkap">
+    </div>
+
+    <button onclick="cekKelulusan()">
+        Cek Kelulusan
+    </button>
+
+    <div class="result" id="resultBox">
+
+        <h2 id="namaSiswa"></h2>
+
+        <div class="status" id="statusKelulusan"></div>
+
+        <p class="ket" id="keterangan"></p>
+
+        <br>
+
+        <button onclick="downloadSurat()">
+            Download Surat Kelulusan
+        </button>
+
+    </div>
+
+    <div class="footer">
+        © 2026 SDN 3 Kesiman • All Rights Reserved
+    </div>
+
+</div>
+
+<script>
+
+const lulus = [
+
+"aurelya vania prasyanto",
+"camelia lamalelang",
+"desak putu febby maha dewi",
+"fajar dwi andika",
+"gede arjun mirajaya",
+"gusti ngurah angga putra",
+"i dewa ayu eva jayanti putri",
+"i gede reynard ferrochie suryawan",
+"i kadek adi prananda",
+"i kadek aditya wiradinata",
+"i kadek ari aditya putra",
+"i kadek danu abhi prawira",
+"i ketut folan juanta cahya purnaweda",
+"i made windhu angga wardana",
+"i putu ashwin adi natha",
+"kadek deswandana pramana putra",
+"komang wirza semara nugraha",
+"made bayu dwiantara",
+"made vriska dwi harta anjani",
+"mohammad zidan alviano",
+"muhammad angga syafi triyasfan",
+"muhammad najiih ilhami",
+"nadila dwi indrayana",
+"ni kadek ekta dara sachita",
+"ni kadek icha anandita sawitri",
+"ni kadek sintia novita dewi",
+"ni ketut vania gea ananda",
+"ni made ayu cantika febriani",
+"ni wayan chintya nareswari putri",
+"putu putra aditya wistara",
+"putu sri anindya oktavia",
+"reza christian dwi prasetya",
+"ni putu anika radha anandini",
+"ni made putri cantika christy",
+"agung lanang prawira",
+"alvin mirza adiansyah",
+"ana muzilul qori simah",
+"anggun arista anggraeni",
+"asyam umar bagus",
+"bramasta ciwa adiguna",
+"cinta sefia cahaya nirwana",
+"figo walfi ramadani",
+"gede adhy dharma wijaya",
+"gede adriyasa sukmakarsa",
+"i dewa ayu dwi kartika athalia",
+"i dewa gede dima basudewa",
+"i gede wiryaguna",
+"i kadek ariana prabawa budiasa",
+"i kadek raditia ananta",
+"i ketut prema sathya nanda",
+"i komang ditya pramana putra",
+"i putu arjun ganeswara",
+"i putu dharma wiguna",
+"i putu gede erlangga wijaya putra",
+"i putu nanda prasetya saputra",
+"imam maulana",
+"kadek dwita mei friska dewi",
+"ketut diva partisya",
+"komang aprilia yogiswari",
+"najwa aqila akanza",
+"ni komang novita dewi",
+"ni luh sinar deswita aulia putri",
+"ni made bhiantari wirmadinata",
+"ni made christine indiana putri",
+"ni putu chintya renata aira dewi",
+"ni putu nesha anabella",
+"ni wayan sasmita pratiwi",
+"nirmala cahyaning setyo",
+"putu bagus bimantara suputra",
+"wayan aishwarya putra",
+"wayan tasya marsela",
+"flower aura azzahra"
+
+];
+
+const tidakLulus = [
+"sri astuti",
+"ni kadek ari"
+];
+
+function cekKelulusan(){
+
+    let input = document
+    .getElementById("nama")
+    .value
+    .toLowerCase()
+    .trim();
+
+    const resultBox =
+    document.getElementById("resultBox");
+
+    const namaSiswa =
+    document.getElementById("namaSiswa");
+
+    const statusKelulusan =
+    document.getElementById("statusKelulusan");
+
+    const keterangan =
+    document.getElementById("keterangan");
+
+    resultBox.style.display = "block";
+
+    if(tidakLulus.includes(input)){
+
+        namaSiswa.innerHTML =
+        input.toUpperCase();
+
+        statusKelulusan.innerHTML =
+        "BELUM LULUS";
+
+        statusKelulusan.className =
+        "status tidak";
+
+        keterangan.innerHTML =
+        "Tetap semangat 🌱<br><br>Perjalanan setiap orang berbeda. Hari ini mungkin belum sesuai harapan, tetapi bukan akhir dari segalanya. Tetaplah melangkah dan terus belajar.";
+
+        return;
+    }
+
+    if(lulus.includes(input)){
+
+        namaSiswa.innerHTML =
+        input.toUpperCase();
+
+        statusKelulusan.innerHTML =
+        "LULUS";
+
+        statusKelulusan.className =
+        "status lulus";
+
+        keterangan.innerHTML =
+        "Selamat! Anda dinyatakan lulus pada Tahun Pelajaran 2025/2026.";
+
+        confettiEffect();
+
+    }else{
+
+        namaSiswa.innerHTML =
+        "DATA TIDAK DITEMUKAN";
+
+        statusKelulusan.innerHTML =
+        "❌";
+
+        statusKelulusan.className =
+        "status tidak";
+
+        keterangan.innerHTML =
+        "Nama yang dimasukkan tidak ditemukan. Silakan periksa kembali.";
+    }
+}
+
+function downloadSurat(){
+
+    alert("Fitur download surat dapat ditambahkan nanti.");
+
+}
+
+function confettiEffect(){
+
+    for(let i=0;i<80;i++){
+
+        const confetti =
+        document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.style.left =
+        Math.random()*100 + "vw";
+
+        confetti.style.animationDuration =
+        (Math.random()*3+2)+"s";
+
+        confetti.style.background =
+        `hsl(${Math.random()*360},100%,50%)`;
+
+        confetti.style.width =
+        confetti.style.height =
+        Math.random()*10+5+"px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
