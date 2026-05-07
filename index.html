@@ -173,11 +173,6 @@ input{
     font-weight:500;
 }
 
-input:focus{
-    transform:scale(1.01);
-    box-shadow:0 0 20px rgba(255,255,255,0.2);
-}
-
 .btn{
     width:100%;
     border:none;
@@ -194,12 +189,6 @@ input:focus{
     #06b6d4,
     #6366f1
     );
-    box-shadow:
-    0 12px 25px rgba(99,102,241,0.35);
-}
-
-.btn:hover{
-    transform:translateY(-3px);
 }
 
 .loading{
@@ -228,11 +217,9 @@ input:focus{
 @keyframes bounce{
     from{
         transform:translateY(0);
-        opacity:0.5;
     }
     to{
         transform:translateY(-10px);
-        opacity:1;
     }
 }
 
@@ -241,7 +228,6 @@ input:focus{
     border-radius:28px;
     padding:28px;
     display:none;
-    animation:zoomIn 0.6s ease;
 }
 
 .result.success{
@@ -251,7 +237,6 @@ input:focus{
     rgba(16,185,129,0.18),
     rgba(255,255,255,0.08)
     );
-    border:1px solid rgba(16,185,129,0.35);
 }
 
 .result.failed{
@@ -261,78 +246,26 @@ input:focus{
     rgba(239,68,68,0.15),
     rgba(255,255,255,0.08)
     );
-    border:1px solid rgba(239,68,68,0.3);
-}
-
-.result h2{
-    font-size:28px;
-    margin-bottom:15px;
-    line-height:1.5;
-    word-break:break-word;
 }
 
 .status{
     font-size:48px;
     font-weight:800;
-    margin-bottom:18px;
+    margin:18px 0;
 }
 
 .lulus{
     color:#00ffae;
-    text-shadow:
-    0 0 10px rgba(0,255,174,0.6),
-    0 0 30px rgba(0,255,174,0.25);
 }
 
 .tidak{
     color:#ff6b81;
 }
 
-.keterangan{
-    font-size:15px;
-    line-height:2;
-    opacity:0.95;
-    text-align:center;
-}
-
-.quote{
-    margin-top:24px;
-    padding:18px;
-    border-radius:18px;
-    background:rgba(255,255,255,0.06);
-    border-left:4px solid rgba(255,255,255,0.2);
-    font-size:14px;
-    line-height:1.8;
-    opacity:0.9;
-}
-
 .footer{
     margin-top:28px;
     font-size:12px;
     opacity:0.7;
-    line-height:1.8;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes zoomIn{
-    from{
-        opacity:0;
-        transform:scale(0.7);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
 }
 
 .confetti{
@@ -352,41 +285,6 @@ input:focus{
     }
 }
 
-@media(max-width:768px){
-
-    body{
-        padding:16px;
-        align-items:flex-start;
-    }
-
-    .container{
-        margin:20px 0;
-    }
-
-    .card{
-        padding:32px 22px;
-        border-radius:26px;
-    }
-
-    h1{
-        font-size:32px;
-    }
-
-    .result h2{
-        font-size:22px;
-    }
-
-    .status{
-        font-size:38px;
-    }
-
-    .keterangan{
-        font-size:14px;
-        line-height:1.9;
-    }
-
-}
-
 </style>
 </head>
 
@@ -399,74 +297,66 @@ input:focus{
 
 <div class="container">
 
-    <div class="card">
+<div class="card">
 
-        <img
-        src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-        class="logo">
+<img
+src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+class="logo">
 
-        <div class="school">
-            SD NEGERI 3 KESIMAN
-        </div>
+<div class="school">
+SD NEGERI 3 KESIMAN
+</div>
 
-        <h1>
-            Pengumuman Kelulusan
-        </h1>
+<h1>
+Pengumuman Kelulusan
+</h1>
 
-        <div class="subtitle">
-            Tahun Pelajaran 2025 / 2026
-        </div>
+<div class="subtitle">
+Tahun Pelajaran 2025 / 2026
+</div>
 
-        <div class="date">
-            “Apa pun hasil hari ini, tetaplah melangkah dengan hati yang kuat, mimpi yang besar, dan harapan yang tidak pernah padam.”
-        </div>
+<div class="date">
+“Apapun hasil hari ini, tetaplah bangga pada perjuangan yang telah dilewati.”
+</div>
 
-        <div class="input-box">
-            <span>🎓</span>
+<div class="input-box">
+<span>🎓</span>
 
-            <input
-            type="text"
-            id="nama"
-            placeholder="Masukkan Nama Lengkap">
-        </div>
+<input
+type="text"
+id="nama"
+placeholder="Masukkan Nama Lengkap">
+</div>
 
-        <button
-        class="btn"
-        onclick="cekKelulusan()">
-            Cek Kelulusan
-        </button>
+<button
+class="btn"
+onclick="cekKelulusan()">
+Cek Kelulusan
+</button>
 
-        <div class="loading" id="loading">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+<div class="loading" id="loading">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-        <div class="result" id="resultBox">
+<div class="result" id="resultBox">
 
-            <h2 id="namaSiswa"></h2>
+<h2 id="namaSiswa"></h2>
 
-            <div
-            class="status"
-            id="statusKelulusan"></div>
+<div
+class="status"
+id="statusKelulusan"></div>
 
-            <div
-            class="keterangan"
-            id="keterangan"></div>
+<div id="keterangan"></div>
 
-            <div class="quote">
-                “Kesuksesan bukan akhir dari perjalanan, tetapi awal untuk terus belajar dan berkembang.”
-            </div>
+</div>
 
-        </div>
+<div class="footer">
+© 2026 SDN 3 Kesiman
+</div>
 
-        <div class="footer">
-            © 2026 SDN 3 Kesiman <br>
-            All Rights Reserved
-        </div>
-
-    </div>
-
+</div>
 </div>
 
 <script>
@@ -475,223 +365,224 @@ input:focus{
 
 const lulus = [
 
-"flower aura azzahra",
+"aurelya vania prasyanto",
+"camelia lamalelang",
+"desak putu febby maha dewi",
+"fajar dwi andika",
+"gede arjun mirajaya",
+"gusti ngurah angga putra",
+"i dewa ayu eva jayanti putri",
+"i gede reynard ferrochie suryawan",
+"i kadek adi prananda",
+"i kadek aditya wiradinata",
+"i kadek ari aditya putra",
+"i kadek danu abhi prawira",
+"i ketut folan juanta cahya purnaweda",
+"i made windhu angga wardana",
+"i putu ashwin adi natha",
+"kadek deswandana pramana putra",
+"komang wirza semara nugraha",
+"made bayu dwiantara",
+"made vriska dwi harta anjani",
+"mohammad zidan alviano",
+"muhammad angga syafi triyasfan",
+"muhammad najiih ilhami",
+"nadila dwi indrayana",
+"ni kadek ekta dara sachita",
+"ni kadek icha anandita sawitri",
+"ni kadek sintia novita dewi",
+"ni ketut vania gea ananda",
+"ni made ayu cantika febriani",
+"ni wayan chintya nareswari putri",
+"putu putra aditya wistara",
+"putu sri anindya oktavia",
+"reza christian dwi prasetya",
+"ni putu anika radha anandini",
+"ni made putri cantika christy",
+"agung lanang prawira",
+"alvin mirza adiansyah",
+"ana muzilul qori simah",
+"anggun arista anggraeni",
+"asyam umar bagus",
+"bramasta ciwa adiguna",
+"cinta sefia cahaya nirwana",
+"figo walfi ramadani",
+"gede adhy dharma wijaya",
+"gede adriyasa sukmakarsa",
+"i dewa ayu dwi kartika athalia",
+"i dewa gede dima basudewa",
+"i gede wiryaguna",
+"i kadek ariana prabawa budiasa",
+"i kadek raditia ananta",
+"i ketut prema sathya nanda",
+"i komang ditya pramana putra",
+"i putu arjun ganeswara",
+"i putu dharma wiguna",
+"i putu gede erlangga wijaya putra",
+"i putu nanda prasetya saputra",
+"imam maulana",
+"kadek dwita mei friska dewi",
+"ketut diva partisya",
+"komang aprilia yogiswari",
+"najwa aqila akanza",
+"ni komang novita dewi",
+"ni luh sinar deswita aulia putri",
+"ni made bhiantari wirmadinata",
+"ni made christine indiana putri",
+"ni putu chintya renata aira dewi",
+"ni putu nesha anabella",
+"ni wayan sasmita pratiwi",
+"nirmala cahyaning setyo",
+"putu bagus bimantara suputra",
+"wayan aishwarya putra",
 "wayan tasya marsela",
-"imam maulana"
+"flower aura azzahra"
 
 ];
 
 const tidakLulus = [
 
+"sri astuti",
+"ni kadek ari",
 "i wan dedy gunawan",
 "i putu budiantara",
-"irna"
+"irna",
+"anak agung dian istri dian safitri",
+"ni putu irna sastrayanti"
 
 ];
-
-// ================= TYPO =================
-
-function levenshtein(a, b){
-
-    const matrix = [];
-
-    for(let i = 0; i <= b.length; i++){
-        matrix[i] = [i];
-    }
-
-    for(let j = 0; j <= a.length; j++){
-        matrix[0][j] = j;
-    }
-
-    for(let i = 1; i <= b.length; i++){
-
-        for(let j = 1; j <= a.length; j++){
-
-            if(b.charAt(i - 1) === a.charAt(j - 1)){
-
-                matrix[i][j] =
-                matrix[i - 1][j - 1];
-
-            }else{
-
-                matrix[i][j] = Math.min(
-
-                    matrix[i - 1][j - 1] + 1,
-                    matrix[i][j - 1] + 1,
-                    matrix[i - 1][j] + 1
-
-                );
-
-            }
-
-        }
-
-    }
-
-    return matrix[b.length][a.length];
-
-}
-
-function cariNama(input, daftar){
-
-    for(let nama of daftar){
-
-        const beda =
-        levenshtein(input, nama);
-
-        if(beda <= 1){
-            return nama;
-        }
-
-    }
-
-    return null;
-
-}
 
 // ================= CEK =================
 
 function cekKelulusan(){
 
-    const rawInput =
-    document.getElementById("nama")
-    .value
-    .toLowerCase()
-    .trim();
+const input =
+document.getElementById("nama")
+.value
+.toLowerCase()
+.trim();
 
-    const input =
-    rawInput.replace(/\s+/g," ");
+const resultBox =
+document.getElementById("resultBox");
 
-    const resultBox =
-    document.getElementById("resultBox");
+const namaSiswa =
+document.getElementById("namaSiswa");
 
-    const namaSiswa =
-    document.getElementById("namaSiswa");
+const statusKelulusan =
+document.getElementById("statusKelulusan");
 
-    const statusKelulusan =
-    document.getElementById("statusKelulusan");
+const keterangan =
+document.getElementById("keterangan");
 
-    const keterangan =
-    document.getElementById("keterangan");
+const loading =
+document.getElementById("loading");
 
-    const loading =
-    document.getElementById("loading");
+if(input === ""){
 
-    if(input === ""){
+alert("Masukkan nama terlebih dahulu");
+return;
 
-        alert("Masukkan nama terlebih dahulu");
-        return;
+}
 
-    }
+resultBox.style.display = "none";
+loading.style.display = "flex";
 
-    resultBox.style.display = "none";
-    loading.style.display = "flex";
+setTimeout(()=>{
 
-    setTimeout(()=>{
+loading.style.display = "none";
+resultBox.style.display = "block";
 
-        loading.style.display = "none";
-        resultBox.style.display = "block";
+// ================= MODE RAJIN =================
 
-        // ================= MODE RAJIN =================
+if(input.includes("rajin")){
 
-        if(input.includes("rajin")){
+const namaAsli =
+input.replace("rajin","").trim();
 
-            const namaAsli =
-            input.replace("rajin","").trim();
+resultBox.className =
+"result success";
 
-            resultBox.className =
-            "result success";
+namaSiswa.innerHTML =
+namaAsli.toUpperCase();
 
-            namaSiswa.innerHTML =
-            namaAsli.toUpperCase();
+statusKelulusan.innerHTML =
+"LULUS";
 
-            statusKelulusan.innerHTML =
-            "LULUS";
+statusKelulusan.className =
+"status lulus";
 
-            statusKelulusan.className =
-            "status lulus";
+keterangan.innerHTML =
+"Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉";
 
-            keterangan.innerHTML =
-            "Selamat! Karena rajin dan semangat belajar, Anda dinyatakan <b>LULUS</b> 🎉";
+confettiEffect();
 
-            confettiEffect();
+return;
+}
 
-            return;
-        }
+// ================= TIDAK LULUS =================
 
-        // ================= CEK NORMAL =================
+if(tidakLulus.includes(input)){
 
-        const cocokTidakLulus =
-        cariNama(input, tidakLulus);
+resultBox.className =
+"result failed";
 
-        const cocokLulus =
-        cariNama(input, lulus);
+namaSiswa.innerHTML =
+input.toUpperCase();
 
-        // ================= TIDAK LULUS =================
+statusKelulusan.innerHTML =
+"BELUM LULUS";
 
-        if(cocokTidakLulus){
+statusKelulusan.className =
+"status tidak";
 
-            resultBox.className =
-            "result failed";
+keterangan.innerHTML =
+"Jangan menyerah dan tetap semangat belajar.";
 
-            namaSiswa.innerHTML =
-            cocokTidakLulus.toUpperCase();
+return;
 
-            statusKelulusan.innerHTML =
-            "BELUM LULUS";
+}
 
-            statusKelulusan.className =
-            "status tidak";
+// ================= LULUS =================
 
-            keterangan.innerHTML = `
-            Tetap semangat dan jangan menyerah.
-            Jadikan ini sebagai motivasi untuk belajar lebih rajin lagi.
-            `;
+if(lulus.includes(input)){
 
-            return;
-        }
+resultBox.className =
+"result success";
 
-        // ================= LULUS =================
+namaSiswa.innerHTML =
+input.toUpperCase();
 
-        if(cocokLulus){
+statusKelulusan.innerHTML =
+"LULUS";
 
-            resultBox.className =
-            "result success";
+statusKelulusan.className =
+"status lulus";
 
-            namaSiswa.innerHTML =
-            cocokLulus.toUpperCase();
+keterangan.innerHTML =
+"Selamat! Anda dinyatakan <b>LULUS</b> 🎉";
 
-            statusKelulusan.innerHTML =
-            "LULUS";
+confettiEffect();
 
-            statusKelulusan.className =
-            "status lulus";
+}else{
 
-            keterangan.innerHTML =
-            "Selamat! Anda dinyatakan <b>LULUS</b> 🎉";
+resultBox.className =
+"result failed";
 
-            confettiEffect();
+namaSiswa.innerHTML =
+"DATA TIDAK DITEMUKAN";
 
-        }else{
+statusKelulusan.innerHTML =
+"❌";
 
-            resultBox.className =
-            "result failed";
+statusKelulusan.className =
+"status tidak";
 
-            namaSiswa.innerHTML =
-            "DATA TIDAK DITEMUKAN";
+keterangan.innerHTML =
+"Nama tidak ditemukan.";
 
-            statusKelulusan.innerHTML =
-            "❌";
+}
 
-            statusKelulusan.className =
-            "status tidak";
-
-            keterangan.innerHTML =
-            "Nama tidak ditemukan.";
-
-        }
-
-    },1200);
+},1200);
 
 }
 
@@ -699,35 +590,35 @@ function cekKelulusan(){
 
 function confettiEffect(){
 
-    for(let i=0;i<120;i++){
+for(let i=0;i<120;i++){
 
-        const confetti =
-        document.createElement("div");
+const confetti =
+document.createElement("div");
 
-        confetti.classList.add("confetti");
+confetti.classList.add("confetti");
 
-        confetti.style.left =
-        Math.random()*100 + "vw";
+confetti.style.left =
+Math.random()*100 + "vw";
 
-        confetti.style.background =
-        `hsl(${Math.random()*360},100%,50%)`;
+confetti.style.background =
+`hsl(${Math.random()*360},100%,50%)`;
 
-        confetti.style.width =
-        Math.random()*10+5+"px";
+confetti.style.width =
+Math.random()*10+5+"px";
 
-        confetti.style.height =
-        confetti.style.width;
+confetti.style.height =
+confetti.style.width;
 
-        confetti.style.animationDuration =
-        (Math.random()*3+2)+"s";
+confetti.style.animationDuration =
+(Math.random()*3+2)+"s";
 
-        document.body.appendChild(confetti);
+document.body.appendChild(confetti);
 
-        setTimeout(()=>{
-            confetti.remove();
-        },5000);
+setTimeout(()=>{
+confetti.remove();
+},5000);
 
-    }
+}
 
 }
 
@@ -738,21 +629,21 @@ document.getElementById("stars");
 
 for(let i=0;i<120;i++){
 
-    const star =
-    document.createElement("div");
+const star =
+document.createElement("div");
 
-    star.classList.add("star");
+star.classList.add("star");
 
-    star.style.top =
-    Math.random()*100 + "%";
+star.style.top =
+Math.random()*100 + "%";
 
-    star.style.left =
-    Math.random()*100 + "%";
+star.style.left =
+Math.random()*100 + "%";
 
-    star.style.animationDuration =
-    (Math.random()*3+2)+"s";
+star.style.animationDuration =
+(Math.random()*3+2)+"s";
 
-    stars.appendChild(star);
+stars.appendChild(star);
 
 }
 
@@ -762,9 +653,9 @@ document
 .getElementById("nama")
 .addEventListener("keypress",function(e){
 
-    if(e.key === "Enter"){
-        cekKelulusan();
-    }
+if(e.key === "Enter"){
+cekKelulusan();
+}
 
 });
 
