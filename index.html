@@ -234,7 +234,7 @@ input:focus{transform:scale(1.02);}
 <div class="container">
 <div class="card">
 
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="logo">
+<img src="logo.jpeg" class="logo">
 
 <div class="school">SD NEGERI 3 KESIMAN</div>
 
@@ -405,10 +405,16 @@ function cekKelulusan(){
 
     if(input.includes("rajin")){
       const namaAsli = input.replace(/rajin/gi,"").trim();
-      tampilLulus(
-        namaAsli.toUpperCase(),
-        "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
-      );
+      const namaZLulus = lulus.find(n => namaAsli.includes(normalizeText(n)));
+      const namaZTidak = tidakLulus.find(n => namaAsli.includes(normalizeText(n)));
+      if(namaZLulus || namaZTidak){
+        tampilLulus(
+          (namaZLulus || namaZTidak).toUpperCase(),
+          "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
+        );
+      } else {
+        tampilTidakDitemukan();
+      }
       return;
     }
 
