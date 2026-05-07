@@ -407,11 +407,14 @@ function cekKelulusan(){
       const namaAsli = input.replace(/rajin/gi,"").trim();
       const namaZLulus = lulus.find(n => normalizeText(n) === namaAsli);
       const namaZTidak = tidakLulus.find(n => normalizeText(n) === namaAsli);
-      const namaTampil = (namaZLulus || namaZTidak || namaAsli).toUpperCase();
-      tampilLulus(
-        namaTampil,
-        "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
-      );
+      if(namaZLulus || namaZTidak){
+        tampilLulus(
+          (namaZLulus || namaZTidak).toUpperCase(),
+          "Selamat! Karena rajin belajar, Anda dinyatakan <b>LULUS</b> 🎉"
+        );
+      } else {
+        tampilTidakDitemukan();
+      }
       return;
     }
 
